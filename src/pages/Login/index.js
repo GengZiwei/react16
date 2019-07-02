@@ -1,4 +1,4 @@
-import React, {memo, useState, useEffect} from 'react';
+import React, {memo, useState, useEffect, Fragment} from 'react';
 
 import FormLogin from './FormLogin'
 import { Row, Col, Button } from 'antd';
@@ -20,17 +20,16 @@ function Login() {
   }, [])
 
   return (
-    <>
+    <Fragment>
     <Row className="login" align="middle" justify="center" type="flex">
       <Col span={6}>
         <MemoForm>
-          
           {login}
           <Button onClick={() => setLogin(login + 1)}>点击添加数据</Button>
         </MemoForm>
       </Col>
     </Row>
-    </>
+    </Fragment>
   );
 }
 export default Login
