@@ -15,8 +15,8 @@ class Home extends Component {
   }
 
   componentWillMount(){
+    console.log( process.env)
     console.log('组件将要进行挂载到页面');
-    
   }
 
   componentDidMount() {

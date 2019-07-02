@@ -21,6 +21,7 @@ ReactDOM.render((
         <Redirect exact from='/' to='/home'/>
         <LazyIng>
           <Route.Home />
+          <Route.User />
         </LazyIng>
       </Switch>
     </BrowserRouter>
