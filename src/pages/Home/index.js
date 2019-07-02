@@ -9,6 +9,11 @@ class Home extends Component {
     super(props);
     this.state = {  }
   }
+
+  componentWillMount() {
+    console.log( process.env)
+  }
+
   render() { 
     return (
     <Row className="login" align="middle" justify="center" type="flex">

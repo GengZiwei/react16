@@ -14,6 +14,12 @@ export const Home = () => {
   )
 }
 
+export const User = () => {
+  return (
+    <Route name="user" breadcrumbName="个人中心" path="/user" component={lazy(() => import('@/pages/User'))}></Route>
+  )
+}
+
 /* 
 var performance = window.performance || window.msPerformance || window.webkitPerformance;
 
