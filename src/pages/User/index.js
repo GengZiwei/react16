@@ -17,12 +17,11 @@ class User extends Component {
       numDate: listDate.push({})
     }, () => {
       console.log('执行更新数据结束');
-      
     })
   }
 
   componentWillMount() {
-    console.log('初始化挂载');
+    console.log('初始化挂载', process.env);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -40,6 +39,7 @@ class User extends Component {
     let listDate = this.state.listDate;
     return ( 
       <Fragment>
+        
         <Button onClick={() => this.setUserDate()}>
           开始
         </Button>
@@ -59,7 +59,7 @@ class User extends Component {
   }
 
   componentDidUpdate() {
-    console.log('数据更细结束');
+    console.log('数据更新结束');
     
   }
 

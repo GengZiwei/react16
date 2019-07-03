@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import { Row, Col } from 'antd'
+
+import MapGD from '@/components/map'
 
 import './index.less'
 
@@ -10,17 +11,12 @@ class Home extends Component {
     this.state = {  }
   }
 
-  componentWillMount() {
-    console.log( process.env)
+  render() { 
+    return ( <div style={{height: '500px'}}>
+      <MapGD ></MapGD>
+      </div> );
   }
 
-  render() { 
-    return (
-    <Row className="login" align="middle" justify="center" type="flex">
-      <Col span={6}>
-      </Col>
-    </Row>);
-  }
 }
  
 export default Home;
