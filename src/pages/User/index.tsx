@@ -1,20 +1,29 @@
 import React, { Component, Fragment } from 'react';
 
-import { Button } from 'antd'
+import { Button } from 'antd';
 
-class User extends Component {
-  constructor(props) {
+
+interface tsProps {
+
+}
+
+interface tsStatu {
+  listDate: any
+}
+
+class User extends Component<tsProps, tsStatu> {
+  constructor(props:any) {
     super(props);
     this.state = { 
       listDate: []
      }
   }
 
+
   setUserDate = () => {
     let { listDate } = this.state;
-    console.log('开始进行更新数据')
     this.setState({
-      numDate: listDate.push({})
+      listDate: listDate.push({})
     }, () => {
       console.log('执行更新数据结束');
     })
@@ -24,7 +33,7 @@ class User extends Component {
     console.log('初始化挂载', process.env);
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate() {
     console.log('是否进行开始更新数据');
     return true
   }
@@ -36,20 +45,11 @@ class User extends Component {
 
   render() {
     console.log('渲染中');
-    let listDate = this.state.listDate;
     return ( 
       <Fragment>
-        
         <Button onClick={() => this.setUserDate()}>
           开始
         </Button>
-        <ul>
-          {
-            listDate.map((res, req) => {
-              return (<li key={req}>{req}</li>)
-            })
-          }
-        </ul>
       </Fragment>
      );
   }

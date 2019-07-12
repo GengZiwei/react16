@@ -4,19 +4,28 @@ import { Route } from 'react-router-dom';
 
 export const Login = () => {
   return (
-    <Route name="login" breadcrumbName="登陆页面" path="/login" component={lazy(() => import('@/pages/Login'))}></Route>
+    <Route name="login" path="/login" breadcrumbName="登陆页面" component={lazy(() => import('pages/Login/index'))}></Route>
   )
 }
 
 export const Home = () => {
   return (
-    <Route name="home" breadcrumbName="主页" path="/home" component={lazy(() => import('@/pages/Home'))}></Route>
+    <>
+      <Route path="/" exact component={lazy(() => import('pages/Home/index'))} />
+      <Route name="home" path="/home" breadcrumbName="主页" component={lazy(() => import('pages/Home/index'))}></Route>
+    </>
   )
 }
 
 export const User = () => {
   return (
-    <Route name="user" breadcrumbName="个人中心" path="/user" component={lazy(() => import('@/pages/User'))}></Route>
+    <Route name="user" path="/user" breadcrumbName="个人中心" component={lazy(() => import('pages/User/index'))}></Route>
+  )
+}
+
+export const Error = () => {
+  return (
+    <Route name="error" path="/404" breadcrumbName="404页面" component={lazy(() => import('pages/User/index'))}></Route>
   )
 }
 
