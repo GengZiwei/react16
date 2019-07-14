@@ -12,7 +12,7 @@ module.exports = {
   output: { // 输出到dist
     publicPath: '/',
     path: resolve('dist'),
-    filename: 'js/[name].[hash].js.js',
+    filename: 'js/[name].[hash].js',
     chunkFilename: 'js/[name].[hash].request.js'
   },
   /* Loaders */

@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import React, { lazy, Fragment } from 'react';
 
 import { Route } from 'react-router-dom';
 
@@ -10,10 +10,10 @@ export const Login = () => {
 
 export const Home = () => {
   return (
-    <>
+    <Fragment>
       <Route path="/" exact component={lazy(() => import('pages/Home/index'))} />
       <Route name="home" path="/home" breadcrumbName="主页" component={lazy(() => import('pages/Home/index'))}></Route>
-    </>
+    </Fragment>
   )
 }
 
@@ -29,7 +29,21 @@ export const Error = () => {
   )
 }
 
-/* 
+export const One = () => {
+  return (
+    <Route name="error" path="/home/one" breadcrumbName="Home1页面" component={lazy(() => import('pages/One/index'))}></Route>
+  )
+}
+
+export const Two = () => {
+  return (
+    <Route name="error" path="/home/two" breadcrumbName="Home2页面" component={lazy(() => import('pages/Two/index'))}></Route>
+  )
+}
+
+/* 二级页面 */
+
+/*
 var performance = window.performance || window.msPerformance || window.webkitPerformance;
 
 // 所有静态资源的数组列表
@@ -146,9 +160,9 @@ timing: {
 
 	// 当load事件结束，即加载事件完成时的时间戳。如果这个事件还未被发送，或者尚未完成，它的值将会是0.
 	loadEventEnd: 1543806783802
-}
+} */
 
-重定向耗时：redirectEnd - redirectStart
+/* 重定向耗时：redirectEnd - redirectStart
 DNS查询耗时 ：domainLookupEnd - domainLookupStart
 TCP链接耗时 ：connectEnd - connectStart
 HTTP请求耗时 ：responseEnd - responseStart
@@ -156,6 +170,4 @@ HTTP请求耗时 ：responseEnd - responseStart
 白屏时间 ：responseStart - navigationStart
 DOMready时间 ：domContentLoadedEventEnd - navigationStart
 onload时间：loadEventEnd - navigationStart，也即是onload回调函数执行的时间。
-
-
-*/
+ */
