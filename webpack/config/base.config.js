@@ -1,12 +1,14 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
+// 拆分css样式的插件
+var ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
+var path = require('path');
 
-const resolve = (dir) => { // node执行路径 ，__dirname文件执行路径
+var resolve = (dir) => { // node执行路径 ，__dirname文件执行路径
   return path.resolve(process.cwd(), dir)
 }
 
 module.exports = {
-  entry: { // 入口文件s
+  entry: { // 入口文件
     app: resolve("src/index.js"),
   },
   output: { // 输出到dist
@@ -18,9 +20,28 @@ module.exports = {
   /* Loaders */
   module: {
     rules: [ // test 匹配 use 进行执行
-      {
-        test: /\.(js|jsx|tsx)$/,
+      /* {
+        test: /\.tsx$/,
         use: 'babel-loader',
+        include: [resolve('src')],
+        exclude: /node_modules/
+      }, */
+      {
+        test: /\.(js|jsx)$/,
+        use: [
+          {loader: 'babel-loader'},
+          // 'eslint-loader'
+        ],
+        include: [resolve('src')],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.(less|css)?$/,
+        use: ExtractTextWebpackPlugin.extract({
+          // 将css用link的方式引入就不再需要style-loader了
+          fallback: "style-loader",
+          use: ['css-loader', 'less-loader'] // 从右向左解析
+        }),
         exclude: /node_modules/
       },
       {
@@ -36,6 +57,11 @@ module.exports = {
   plugins: [ // 使用模板html
     new HtmlWebpackPlugin({template: resolve('index.html')})
   ],
+  optimization: {
+    splitChunks: { // 提取公共模块
+      chunks: 'all'
+    }
+  },
   resolve: {
     extensions: ['.js', 'jsx', '.tsx', '.json'], // 自动补全的扩展名
     alias: {
