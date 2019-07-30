@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'antd'
-
+import {Button} from 'antd'
 
 class App extends Component {
   constructor(props) {
@@ -9,13 +8,13 @@ class App extends Component {
   }
 
   componentDidMount() {
-    
+
   }
   
   render() { 
     return ( <div>
-      啊啊
-      <Button>获取</Button>
+      123
+      <Button>123</Button>
     </div> );
   }
 }

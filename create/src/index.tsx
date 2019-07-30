@@ -8,7 +8,7 @@ import * as Routes from 'route/index';
 import LazyIng from 'components/Lazy';
 import zh_CN from 'antd/lib/locale-provider/zh_CN';
 import moment from 'moment';
-import './utils/widow'
+// import './utils/widows'
 // import 'utils/ts'
 import 'moment/locale/zh-cn';
 
