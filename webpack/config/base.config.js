@@ -1,4 +1,4 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin'); // html
 const path = require('path');
 
 const resolve = (dir) => { // node执行路径 ，__dirname文件执行路径
@@ -16,12 +16,25 @@ module.exports = {
     chunkFilename: 'js/[name].[hash].request.js'
   },
   /* Loaders */
+  /* 
+  test：用于匹配处理文件的扩展名的表达式，这个选项是必须进行配置的；
+  use：loader名称，就是你要使用模块的名称，这个选项也必须进行配置，否则报错；
+  include/exclude:手动添加必须处理的文件（文件夹）或屏蔽不需要处理的文件（文件夹）（可选）；
+  query：为loaders提供额外的设置选项（可选）。
+  */
   module: {
-    rules: [ // test 匹配 use 进行执行
+    rules: [
       {
         test: /\.(js|jsx|tsx)$/,
         use: 'babel-loader',
         exclude: /node_modules/
+      },
+      {
+        test: /\.(css|less)$/,
+        use: [
+          {loader: 'style-loader'},
+          {loader: 'css-loader'}
+        ]
       },
       {
         test: /\.(woff|woff2|ttf|eot|png|jpg|jpeg|gif|svg)(\?v=\d+\.\d+\.\d+)?$/i, // 图片加载
