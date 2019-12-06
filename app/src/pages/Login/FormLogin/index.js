@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import PersonalContext from '../Context'
 import { Input, Button, Form, Icon, Checkbox} from 'antd'
 
 
 const Index = (props) => {
   const { getFieldDecorator } = props.form
-  const data = props.data
+  // const data = props.data
+  const data = useContext(PersonalContext);
+  console.log(data);
   return (
     <Form className="login-form">
       <Form.Item>
@@ -13,7 +16,6 @@ const Index = (props) => {
           rules: [{ required: true, message: '请输入你的用户名' }],
         })(
           <Input
-            // onBlur={this.typeName.bind(this, 'userName')}
             prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
             placeholder="Username"
           />,
@@ -25,7 +27,6 @@ const Index = (props) => {
           rules: [{ required: true, message: '请输入你的密码' }],
         })(
           <Input
-            // onBlur={this.typeName.bind(this, 'password')}
             prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
             type="password"
             placeholder="Password"
